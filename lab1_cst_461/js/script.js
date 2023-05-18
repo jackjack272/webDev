@@ -51,15 +51,31 @@ function peginate(page){
     }
     butt+="</div>"
 
-
-
-
     // this is already added to the page so im adding it again when i refresh the page. 
         // if exists then continue else 
     if ( document.querySelector('.first')==null ){
         document.querySelector(".page")
         .insertAdjacentHTML("beforeend",butt);
+    
+        let pagination="<br><br>we want to say thank you to our contributors!<br>";
+        for(let i=0; i < 3; i++){
+            pagination+=" <a class='pagination' href=''> "+users[5+i].name+ " </a><br>";
+        }
+        document.querySelector(".page")
+        .insertAdjacentHTML("beforeend",pagination);
+    
+        Array.from(document.querySelectorAll(".pagination")).map(
+            (link)=>{
+                link.addEventListener("click", greet)
+            }
+        )    
     }
-
+    
 }
 peginate(page=0)
+
+
+function greet(e){
+    e.preventDefault();
+    // alert(this.name)
+}
