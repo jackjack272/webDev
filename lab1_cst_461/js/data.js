@@ -158,5 +158,10 @@ users = [
         "name" : "hudson anderson",
         "image" : "https://randomuser.me/api/portraits/thumb/men/91.jpg",
         "joined" : "09/12/15"
+    },
+    {
+        "name" : "sir billard the 5th ",
+        "image" : "https://randomuser.me/api/portraits/thumb/women/91.jpg",
+        "joined" : "09/22/15"
     }
 ]
