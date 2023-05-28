@@ -1,0 +1,31 @@
+body{
+    background-color:antiquewhite;
+}
+
+.accordion-container{
+    display:block;
+    margin-left: 30%;
+    margin-right: 30%;
+
+}
+.accordion-header{
+    font-size: 30px;
+    margin-bottom: 2%;
+
+}
+.accordion{
+    background-color: grey;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: large;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 10px;
+
+}
+.accordion div{
+    display:inline-block;
+    float:right;
+    margin-right: 7%;
+} 
+
