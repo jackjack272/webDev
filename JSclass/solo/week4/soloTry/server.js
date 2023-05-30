@@ -1,7 +1,7 @@
 let express= require("express")
-let bodyParser= requre("body-parser")
+let bodyParser= require("body-parser")
 let app= express()
-    app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.urlencoded({extended:true}))
 let port=3000
 
 
@@ -9,8 +9,12 @@ let port=3000
 app.get("/", (request,response)=>{
     response.sendFile(__dirname+"/webpages/defaultpage/home.html");
 })
-app.get("/getForm", ()=>{
+app.get("/getMethod", (request, response)=>{
+    response.send(`your frist name is ${request.body.first_name}`)
+})
 
+app.get("/postMethod",(request, response)=>{
+    response.send(`your frist name is ${request.body.first_name}`)  
 })
 
 
