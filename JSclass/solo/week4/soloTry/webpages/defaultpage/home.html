@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        
+        div{
+            display: block;
+            margin-left: 25px;
+        }
+        body >div{
+            float:left;
+        }
+        
+    </style>
+<body>
+    <h1>Hello dear friend</h1>
+    <p>i would like you to fill out the following form </p>
+
+    <div>
+        <label for="getForm">This is a get form</label>
+        <form id="getForm" metho="get" action="/getMethod">
+            <label for="first_name">First Name</label>
+            <input type="text" id="firstName" name="first_name" value="jackson" > 
+                <br>
+            <label for="lastName" >Last Name</label>
+            <input type="text" id="lastName" value="smitherson">
+            <br>
+            <br>
+
+            <input type="submit" value="submit">
+        </form>
+    </div>  
+
+    <div>    
+        <label for="postForm">This is a post form</label>
+        <form id="getForm" metho="post" action="/postMethod">
+            <label for="first_name">First Name</label>
+            <input type="text" id="firstName" name="first_name" value="jackson" > 
+                <br>
+            <label for="lastName" >Last Name</label>
+            <input type="text" id="lastName" value="smitherson">
+            <br>
+            <br>
+
+            <input type="submit" value="submit">
+        </form>
+    </div>
+</body>
+</html>
