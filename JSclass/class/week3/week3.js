@@ -98,7 +98,7 @@ app.use((req,res,next)=>{
     next();
 })
 
-app.use((err,rq,res,next)=>{
+app.use((err,req,res,next)=>{
     console.log("we are here waiting")
     res.send("This is an end route not found ,404 page not found error. ")
 
