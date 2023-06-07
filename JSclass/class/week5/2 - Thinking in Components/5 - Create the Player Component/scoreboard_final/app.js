@@ -9,6 +9,7 @@ const Header = () => {
 
 const Player = () => {
   return (
+    <Header />,
     <div className="player">
       <span className="player-name">
         Guil
