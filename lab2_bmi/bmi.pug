@@ -12,18 +12,19 @@ head
 body   
     div.header
         div.wrapper
-        form 
+        form(method="post")
             h1 BMI calculator
             p insert your age
-            input.age(type="text")
-            p insert weight in key
-            input.weight(type="text")
+            input.age(type="text" name="age"  value=strAge ? strAge:null )
+            p insert weight in kg
+            input.weight(type="text" name="weight"  value= strWeight ? strWeight:null )
             br
             p inser heihght in cm 
-            input.height(type="text")
+            input.height(type="text" name="height" value= strHeight? strHeight:null )
             br
             button.calc(action="/") check 
             p.result
+            p= strBMI
 
         //- if(one.length==0){ 
         //-     p= one    
