@@ -10,7 +10,6 @@ const Header=(props)=>{
 }
 
 
-
 const Card=(prop)=>{
     return (
         <div>
