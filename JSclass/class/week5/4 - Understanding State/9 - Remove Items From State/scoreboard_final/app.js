@@ -75,7 +75,11 @@ class App extends React.Component {
   handleRemovePlayer = (id) => {
     this.setState( prevState => {
       return {
-        players: prevState.players.filter( singlePlayer => singlePlayer.id !== id ) // 
+        players: prevState.players.filter( singlePlayer => singlePlayer.id !== id ) 
+          // this will go throught all the items and check if the property is not = id.
+          // if its true it keeps it,
+          // throw away the match. 
+          // i can remove multiple instances not just 1.
       };
     });
   }
