@@ -42,7 +42,7 @@ const Player = (props) => {
   );
 }
 
-class Counter extends React.Component {
+class Counter extends React.Component { // this is an instance of class component 
   render() {
     return (
       <div className="counter">

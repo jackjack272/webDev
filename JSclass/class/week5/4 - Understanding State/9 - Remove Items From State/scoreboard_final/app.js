@@ -70,10 +70,12 @@ class App extends React.Component {
     ]
   };
 
+  // to remove a item from a list we need to use filter, 
+    // pop will pop off the last item 
   handleRemovePlayer = (id) => {
     this.setState( prevState => {
       return {
-        players: prevState.players.filter( p => p.id !== id )
+        players: prevState.players.filter( p => p.id !== id ) // 
       };
     });
   }
@@ -90,7 +92,7 @@ class App extends React.Component {
         {this.state.players.map( player =>
           <Player 
             name={player.name}
-            id={player.id}x
+            id={player.id}
             key={player.id.toString()} 
             removePlayer={this.handleRemovePlayer}           
           />
