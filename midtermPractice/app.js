@@ -60,7 +60,10 @@ const Player=(props)=>{
 
 const AddPlayerForm=()=>{
     return(
+        <div>
+            <h2>This form is for adding players to the board</h2>
 
+        </div>
     );
 }
 
@@ -123,6 +126,7 @@ class App extends React.Component{
 
 
             <br></br>
+            <AddPlayerForm />
             <br></br>
             <br></br>
             <Footer />
