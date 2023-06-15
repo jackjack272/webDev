@@ -110,7 +110,6 @@ class App extends React.Component{
                 )
             }
         })   
-      
     }
 
     addPlayer=( newUser)=>{
@@ -152,9 +151,6 @@ class App extends React.Component{
     }
 
 }
-
-
-
 
 ReactDOM.render(
     <App />,
