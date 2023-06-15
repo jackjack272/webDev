@@ -70,10 +70,16 @@ class App extends React.Component {
     ]
   };
 
+  // to remove a item from a list we need to use filter, 
+    // pop will pop off the last item 
   handleRemovePlayer = (id) => {
     this.setState( prevState => {
       return {
-        players: prevState.players.filter( p => p.id !== id )
+        players: prevState.players.filter( singlePlayer => singlePlayer.id !== id ) 
+          // this will go throught all the items and check if the property is not = id.
+          // if its true it keeps it,
+          // throw away the match. 
+          // i can remove multiple instances not just 1.
       };
     });
   }
@@ -90,7 +96,7 @@ class App extends React.Component {
         {this.state.players.map( player =>
           <Player 
             name={player.name}
-            id={player.id}x
+            id={player.id}
             key={player.id.toString()} 
             removePlayer={this.handleRemovePlayer}           
           />
