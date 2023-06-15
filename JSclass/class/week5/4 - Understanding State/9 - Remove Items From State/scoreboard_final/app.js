@@ -40,7 +40,7 @@ class Counter extends React.Component {
   render() {
     return (
       <div className="counter">
-        <button className="counter-action decrement" onClick={this.decrementScore}> - </button>
+        <button onClick={this.decrementScore} className="counter-action decrement" > - </button>
         <span className="counter-score">{ this.state.score }</span>
         <button className="counter-action increment" onClick={this.incrementScore}> + </button>
       </div>
@@ -73,9 +73,11 @@ class App extends React.Component {
   // to remove a item from a list we need to use filter, 
     // pop will pop off the last item 
   handleRemovePlayer = (id) => {
+
     this.setState( prevState => {
       return {
-        players: prevState.players.filter( singlePlayer => singlePlayer.id !== id ) 
+        players: prevState.players.filter( 
+          singlePlayer => singlePlayer.id !== id ) 
           // this will go throught all the items and check if the property is not = id.
           // if its true it keeps it,
           // throw away the match. 
