@@ -58,11 +58,23 @@ const Player=(props)=>{
     );
 }
 
-const AddPlayerForm=()=>{
+const AddPlayerForm=(props)=>{
     return(
         <div>
             <h2>This form is for adding players to the board</h2>
+            <form>
+                <label for="getName">Enter your name to be added to player list</label>
+                <br />
+                <input  type="text" id="getName"></input>
 
+            </form>
+            <button
+                onClick={()=>{
+                    props.getData(document.getElementById("getName").value)
+                    document.getElementById("getName").value=""
+                }}             
+                type="submit"
+                >Submit </button>
         </div>
     );
 }
@@ -101,7 +113,14 @@ class App extends React.Component{
       
     }
 
-    addPlayer=()=>{
+    addPlayer=( newUser)=>{
+        console.log(newUser)
+        
+        let newUserObj={name: newUser, id:this.state.players[this.state.players.length-1].id+1 }
+        console.log(newUserObj)
+        this.setState(prevState=>({
+                player:prevState.players.push(newUserObj)
+        }));
 
     }
 
@@ -111,8 +130,6 @@ class App extends React.Component{
                 <Header 
                     students ={this.state.players.length}
                 />
-
-
             {this.state.players.map(singlePlayer =>{
                 // return singlePlayer.name
                 return <Player 
@@ -122,11 +139,10 @@ class App extends React.Component{
                 />
             })}
 
-
-
-
             <br></br>
-            <AddPlayerForm />
+            <AddPlayerForm 
+                getData={this.addPlayer}
+            />
             <br></br>
             <br></br>
             <Footer />
