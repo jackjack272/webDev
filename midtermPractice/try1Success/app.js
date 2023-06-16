@@ -117,6 +117,7 @@ class App extends React.Component{
         
         let newUserObj={name: newUser, id:this.state.players[this.state.players.length-1].id+1 }
         console.log(newUserObj)
+        
         this.setState(prevState=>({
                 player:prevState.players.push(newUserObj)
         }));

@@ -69,18 +69,26 @@ const PlayerCard=(props)=>{
 
 const AddPlayerFourm=(props)=>{
     return(
-        <div>
-            <h2>This is the add player form </h2>
-            <form>
-                <label for="addPlayer">Enter the name of the player to be added</label>
-                <br />
-                <input type="text" id="addPlayer"></input>
-                <button onClick={()=>{props.addPlayer(
-                    document.getElementById("addPlayer").value
-                )}}>Submit</button>
+        <aside>
+            <h3>This is the add user form </h3>
 
+            <form>
+                <label for="userName">Enter the name of the player thats joing </label>
+                <br />
+                <input id="userName" ></input>
+                <br />
             </form>
-        </div>
+
+            <button value="submit" onClick={()=>{
+                props.addPlayer(
+                    document.getElementById("userName").value
+                )
+            }}> submit</button>
+
+        </aside>
+        
+
+
     );
 }
 
@@ -122,16 +130,18 @@ class App extends React.Component{
 
     addPlayer=(playerName)=>{
         console.log(playerName)
-        // this.setState(prevState=>({
-        //     players:prevState.players.push(
-        //         {
-        //             name:playerName,
-        //             id:prevState.players[prevState.players.length-1].id+1
-        //         }
-        //     )
-        // }))
 
-    }
+        let newUserObj={
+            name:playerName,
+            id: this.state.players[this.state.players.length-1].id +1
+        }
+        console.log(newUserObj)
+
+        this.setState(prevState=>({
+            SomethingHere:prevState.players.push(newUserObj)
+        }));
+     
+    }   
 
     render(){
         return(
