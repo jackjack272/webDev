@@ -11,7 +11,6 @@ class ScoreBoard extends React.Component{
                 score:prevState.score +1
             }}
         )
-
     }
     decrement=()=>{
         this.setState(
@@ -19,7 +18,6 @@ class ScoreBoard extends React.Component{
                 score:prevState.score -1
             })
         )
-
     }
 
     render(){
@@ -28,8 +26,6 @@ class ScoreBoard extends React.Component{
                 <button onClick={this.increment}> + </button>
                 <span> {this.state.score} </span>
                 <button onClick={this.decrement}> - </button>
-
-
             </div>
         );
     }
@@ -45,7 +41,6 @@ const PlayerCard=(props)=>{
             <button onClick={()=>{
                 props.delMe(props.id)
             }}>Delete Me</button>
-
 
         </div>
     );
@@ -81,6 +76,7 @@ const AddPlayerForm=(props)=>{
     </aside>
     );
 }
+
 class App extends React.Component{
     state={
         allThePlayers:[
@@ -148,7 +144,6 @@ class App extends React.Component{
                 <AddPlayerForm 
                     addPlayer={this.addPlayer}
                 />
-
             </div>
         )
     }
