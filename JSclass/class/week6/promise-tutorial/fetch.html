@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Document</title>
+        <script>
+        // Fetch data from the Space X API
+       
+       
+        async function getData(){
+        await fetch('https://api.spacexdata.com/v4/launches/latest')
+            // wait for the fetch to execute before going to the next part
+            //need to have a server where i saved my data 
+            // when i use API i use json data. 
+
+
+        // Convert the data into JavaScript
+        .then((response) => response.json())
+            // we get the data here
+            //.json puts it all in to 1 file. 
+
+
+        // Now we can use the data
+        .then((data) => {
+            //gets the above data
+
+
+        // Log out the data
+        console.log(data);
+        // Add some data amd markup to the page
+        document.querySelector('#app').insertAdjacentHTML(
+        'beforeend',
+        `<h2>${data.name}</h2>
+        <p>${data.date_local}</p>
+        <img src="${data.links.patch.small}">
+        `
+        );
+        })   
+        // Log out any errors
+
+        // if the data cant be resolved then the control comes to this catch here.  
+        .catch((error) => console.error(error));
+    }
+        getData()
+        </script>
+    </head>
+    <body>
+    <div id="app"></div>
+    </body>
+</html>
