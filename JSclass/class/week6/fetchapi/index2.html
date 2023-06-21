@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      console.log(`First`);
+      // Fetch data from the Space X API
+      fetch('https://api.spacexdata.com/v4/launches/latest')
+        // Convert the data into JavaScript
+        .then((response) => response.json())
+        // Now we can use the data
+        .then((data) => {
+          // Log out the data
+          console.log('second', data);
+          // Add some data amd markup to the page
+        })
+        // Log out any errors
+        .catch((error) => console.error(error));
+      console.log('third');
+    </script>
+  </head>
+
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
