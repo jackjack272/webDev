@@ -11,6 +11,7 @@ function generateRandomNumber() {
 }
 
 function printRandomNumber() {
+  
   var evenNumberPromise = new Promise(function (resolve, reject) {
     //Do some stuff (usually async stuff)
     var number = generateRandomNumber();

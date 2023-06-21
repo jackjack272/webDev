@@ -2,15 +2,17 @@
 // so in next step, we put it inside the function.
 
 var evenNumberPromise = new Promise(function (resolve, reject) {
+    // promise is a class in js that has a callback with 2 objs 
+
   //Do some stuff (usually async stuff)
   var number = generateRandomNumber();
 
   if (number % 2 == 0) {
     //Resolved!
-    resolve('Even Number!');
+    resolve('Even Number!'); // this is what you return if its resolved 
   } else {
     //Reject!
-    reject('Odd Number!');
+    reject('Odd Number!'); // returns if its not what i expect. 
   }
 });
 
