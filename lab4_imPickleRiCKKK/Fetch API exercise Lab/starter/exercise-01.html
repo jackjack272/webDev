@@ -7,8 +7,18 @@
     <title>Fetch API Exercise Lab</title>
 
 <style>
-.bgColor{
+#bgColor{
   background-color: black;
+  color: aliceblue;
+  padding: 1% ;
+}
+.card{
+  border-style: solid;
+  margin: 2%;
+  width:wrap-content;
+  display:inline-block;
+  border-width: thin;
+
 
 }
 
@@ -38,7 +48,7 @@
       console.log(workingSpace.innerHTML)
 
 
-      workingSpace.insertAdjacentHTML("afterend","<div id='container2'>Characters </div>")
+      workingSpace.insertAdjacentHTML("afterend","<div id='container2'> <h1> Characters</h1> </div>")
       workingSpace.insertAdjacentHTML("afterend","<p id='bgColor'>Rick and Morty</p>")
 
       let charContainer=document.getElementById('container2')
