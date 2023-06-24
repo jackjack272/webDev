@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Fetch API Exercise Lab</title>
+
+<style>
+.bgColor{
+  background-color: black;
+
+}
+
+
+
+
+</style>
+
+
   </head>
   <body>
     <div id="container">
@@ -14,9 +27,62 @@
   </body>
   <script>
     // Place your code below this line
-    
 
 
+    async function getThePickle(){ 
+      // im pickle rick wabaluba dub dub litterly the funniest thing ive ever seen 
+      
+      
+      
+      let workingSpace=document.getElementsByTagName("p")[0]
+      console.log(workingSpace.innerHTML)
+
+
+      workingSpace.insertAdjacentHTML("afterend","<div id='container2'>Characters </div>")
+      workingSpace.insertAdjacentHTML("afterend","<p id='bgColor'>Rick and Morty</p>")
+
+      let charContainer=document.getElementById('container2')
+      
+
+      await fetch("https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10")
+      .then((data)=>{
+        return data.json() 
+      })
+      .then((data)=>{
+        let msg=""
+        console.log(data)
+
+        let cardInRow=0
+        let cardsAllowed=4
+        data.map((oneChar)=>{
+            
+          msg+=`
+              <div class="card">
+                <img src="`+oneChar.image+` ">
+                <h2>`+oneChar.name+`</h2>
+                <p>Origin: `+oneChar.origin.name+`</p>
+              </div>
+            `  
+
+          cardInRow++
+          if(cardInRow ==cardsAllowed){
+            msg+="<br>"
+            cardInRow=0
+          }
+
+
+        })
+
+        charContainer.innerHTML+=msg
+
+      })
+      .catch((err)=>{console.log(err)})
+
+
+    }
+
+
+    getThePickle()
 
   </script>
 </html>
