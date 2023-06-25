@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Fetch API Exercise Lab</title>
+
+<style>
+
+</style>
+
+  </head>
+  <body>
+    <div id="container">
+      <h1>The Fetch API Exercises</h1>
+      <p>Open the web inspector console to test.</p>
+    </div>
+  </body>
+  <script>
+    
+
+    let url="https://dog2.ceo/api/breeds/image/random"
+    fetch(url).then((data) =>{return data.json()})
+    .then((data)=>{
+        // console log the data 
+        console.log(data)
+        // log out mark up for an img
+        console.log("<img src=”${data.message}” alt=”Random photo of a dog” />")
+
+        //7. instead of logging to console, have the img of dog display on the page before end of container div. 
+        document.getElementById("container").insertAdjacentHTML("beforeend",
+        '<img src=” '+data.message+' ” alt=”Random photo of a dog” />'
+        )
+        
+        //8 make a function called getRandomDogPhoto that returs a fetch request to the following URL?
+    })
+    .catch((err)=>{console.log(err)})
+
+    function getRandomDogPhotot(){
+        // returns from* ??
+
+        
+
+
+    }
+
+
+
+  </script>
+</html>
