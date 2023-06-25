@@ -7,7 +7,7 @@
     <title>Fetch API Exercise Lab</title>
 
 <style>
-#bgColor{
+.bgColor{
   background-color: black;
   color: aliceblue;
   padding: 1% ;
@@ -21,7 +21,24 @@
 
 
 }
+.sizeMe{
+  width: 100%;
+}
+.card2{
+  border-style: ridge;
+  padding:1%;
+  display:inline-block;
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 3%;
+  text-align: center;
+  background-color: rgba(241, 251, 250, 0.888);
+}
+.container2{
+  border-style: dotted;
 
+}
 
 
 
@@ -37,35 +54,35 @@
   </body>
   <script>
     // Place your code below this line
+    getThePickle()
+
+    getDemFancyRichPplDoodles_southern_accent()
+
+
 
 
     async function getThePickle(){ 
-      // im pickle rick wabaluba dub dub litterly the funniest thing ive ever seen 
-      
-      
-      
+      // im pickle rick wabaluba dub dub litterly the funniest thing ive ever seen       
       let workingSpace=document.getElementsByTagName("p")[0]
-      console.log(workingSpace.innerHTML)
-
-
-      workingSpace.insertAdjacentHTML("afterend","<div id='container2'> <h1> Characters</h1> </div>")
-      workingSpace.insertAdjacentHTML("afterend","<p id='bgColor'>Rick and Morty</p>")
-
+      workingSpace.innerHTML=`
+        This Assignment Requires 2 Parts 
+        <br>
+        <a href='#container2'>part1</a>
+        <a href="#heading2">part2</a>
+      `
+      workingSpace.insertAdjacentHTML("afterend","<div id='container2'> <h1> Characters</h1> ")
+      workingSpace.insertAdjacentHTML("afterend","<p class='bgColor'>Rick and Morty</p>")
       let charContainer=document.getElementById('container2')
-      
-
-      await fetch("https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10")
+      await fetch("https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8")
       .then((data)=>{
         return data.json() 
       })
       .then((data)=>{
         let msg=""
-        console.log(data)
-
+        // console.log(data)
         let cardInRow=0
-        let cardsAllowed=4
+        let cardsAllowed=3
         data.map((oneChar)=>{
-            
           msg+=`
               <div class="card">
                 <img src="`+oneChar.image+` ">
@@ -73,26 +90,75 @@
                 <p>Origin: `+oneChar.origin.name+`</p>
               </div>
             `  
-
           cardInRow++
           if(cardInRow ==cardsAllowed){
             msg+="<br>"
             cardInRow=0
           }
-
-
         })
-
+        msg+="</div>"
         charContainer.innerHTML+=msg
-
       })
       .catch((err)=>{console.log(err)})
+    }
+
+    async function getDemFancyRichPplDoodles_southern_accent(){
+     
+     
+      let tags=document.getElementsByTagName("div")
+      tags[tags.length-1].insertAdjacentHTML("afterend","<h2 id='heading2'>Metropolitan Museum of Art, New York, NY </h2>")
+      tags[tags.length-1].insertAdjacentHTML("afterend","<p class='bgColor'>Fine Art *tips top hat* </p>")
+
+      // incase of desperation break the glass
+      //     [ https://emojihub.yurace.pro/api/random ]
+
+      
+      let baseURL="https://collectionapi.metmuseum.org/public/collection/v1/objects/"
+      let newLookUp;
+
+      let imagesLookedUp=11100;
+      let imagesFound=0;
+      let imagesToFind=8;
+      let cardsPerRow=1;
+      let html=`<div>`
+
+      while(true){
+        newLookUp=baseURL+imagesLookedUp
+
+        await fetch(newLookUp).then((data)=>{return data.json() })
+        .then((data)=>{
+          if(data.primaryImage !== "" && data.primaryImage !== undefined ){
+              html+=`
+                <div class="card2">
+                  <img class="sizeMe" src="`+data.primaryImage+`" alt="">
+                  <h2>`+data.objectName+` </h2>
+                  <p> `+data.artistDisplayName+` in the piece '`+data.objectName +`' display the `+data.culture+` culture. </p>
+                  <p> Year of Production `+data.accessionYear+`</p>
+                </div>
+              `
+              if(imagesFound %cardsPerRow ==0){
+                html+="<br>"
+              }
+              imagesFound++
+          }
+          imagesLookedUp++
+        })
+        .catch((err)=>{
+          imagesLookedUp++
+          return console.log(err)
+        })
+
+        if(imagesFound>imagesToFind){
+          break;
+        }
+      }
+      html+="</div>"
+      // append the html 
+      document.getElementById('heading2').insertAdjacentHTML("afterend",html)
 
 
     }
 
-
-    getThePickle()
 
   </script>
 </html>
