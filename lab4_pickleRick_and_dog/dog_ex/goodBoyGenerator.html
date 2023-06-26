@@ -5,8 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Fetch API Exercise Lab</title>
-
 <style>
+h1{
+  color: blue;
+  text-decoration: underline;
+}
+a{
+  color: blue;
+}
+
 
 </style>
 
@@ -14,37 +21,118 @@
   <body>
     <div id="container">
       <h1>The Fetch API Exercises</h1>
-      <p>Open the web inspector console to test.</p>
+      <p>Open the <a href="https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/console-dom-interaction">
+        web inspector</a> console to test.</p>
+      
+        
     </div>
   </body>
   <script>
-    
 
+    //5. move URL to own variable "url"
     let url="https://dog2.ceo/api/breeds/image/random"
-    fetch(url).then((data) =>{return data.json()})
+    //1. write out a basic fetch API call to the URL using fetch
+    //2. add then to make and make it json 
+    fetch(url).then((data)=>{return data.json()})
+    //3. log the data to the console
     .then((data)=>{
-        // console log the data 
-        console.log(data)
-        // log out mark up for an img
-        console.log("<img src=”${data.message}” alt=”Random photo of a dog” />")
-
-        //7. instead of logging to console, have the img of dog display on the page before end of container div. 
-        document.getElementById("container").insertAdjacentHTML("beforeend",
-        '<img src=” '+data.message+' ” alt=”Random photo of a dog” />'
-        )
-        
-        //8 make a function called getRandomDogPhoto that returs a fetch request to the following URL?
-    })
+      console.log(data)
+      //6. console log of the data log out markeup for an image
+      console.log(`<img src=”${data.message}” alt=”Random photo of a dog” />`)
+      //7. instead of logging the img markuo to console, have the image of the random dog displayed on the page
+        // BEFORE END of dic="container"
+        document.getElementById('container').insertAdjacentHTML('beforeend',`<img src=”${data.message}” alt=”Random photo of a dog” />`)
+    }) 
+    //4. Add a catch() statment that shows the eroros 
+      // change the domain from dog.ceo to dog2.ceo
     .catch((err)=>{console.log(err)})
 
-    function getRandomDogPhotot(){
-        // returns from* ??
 
+
+
+    //8. create a function called getRandomDogPhoto() that returns a fetch request 'to' of?  the following URL
+      // https://dog.ceo/api/breeds/image/random
+      // make sure the whole fetch is being returned 
+    function getRandomDogPhoto(url="https://dog.ceo/api/breeds/image/random"){
+      return fetch(url).then((data)=>{return data.json() }).catch((err)=>{ return err})
+    }
+
+    //9. make a async function "init()()" - going to assume ()() was a typo and () was intended
+      // make a variable "data" that awayts getRnadDogPic to return data. 
+      // on the returned data log the value of the data  othe consolde inside of init()
+        // call init to test
+    
+
+    //12. before the init() function, selet the button with ID of load-photot and assign it to a variable of button. 
+      // inside the init() function, attach the handelButton() as an event listener to the button. 
+      // inside of the loadSpinner function, set the button to disabled button.
+      
+      // Finally, oad the img variable inside of the button before the text button.insertAdjacentHTML() 
+        // test the animation
+      
+      // when you click the button- the button should dissapear once the image loads - might be too fast of load 
+    
+    document.getElementById("container").insertAdjacentHTML("beforeend","<button id='load-photo'>load a good ol boy </button>")
+    let button=document.getElementById("load-photo")
+    // button.innerText="selected it right"
+
+
+
+    async function init(){
+      // let x =handelButton(()=>{
+      //   button.addEventListener("click",()=>{console.log("button hit")} )//loadSpinner())  // i think init is meant to be triggered by this. 
+      // })         
+      // Finally, oad the img variable inside of the button before the text button.insertAdjacentHTML() 
+      // Finally, oad the img variable inside of the button before the text button.insertAdjacentHTML() 
+        // i dont understnad the instruction 100%
+      
+      
+      loadSpinner()
+      
+      let data= await getRandomDogPhoto()
+
+      console.log("inside init the data is ")
+      console.log(data)
+      
+      //10. create a new function called renderDogPhoto(url) that takes the url from a dog photo can displays it on the page 
+      // before BEFORE THE END OF DIV="container"
+      //call renderDogPhotot() inside init() after the getRandomDog Photot function
+      // make sure to pass the correct value to the url to the dog photo into renderDog Photot function - data.message
+        // photot should display on the screen. 
+      
+      //11.add 2 new functions - loadSpinner() and rmoveSpinner() 
+      //loadSpinner() before you await the dog pic in init 
+      // call RemoveSpinner ater you have received the data and before i display the photo
         
+      removeSpiner()
+      
+      renderDogPhoto(data.message)
 
 
     }
 
+    function renderDogPhoto(url){
+      document.getElementById("container").insertAdjacentHTML("beforeend",
+        `<img src="${url}" alt="images of a dog">`
+      )
+
+    }
+  
+    function loadSpinner(){
+      const spinner ="assets/loader.svg"
+      const img= `<img src="${spinner}" id="spinner" alt="load spinner image" /> `;
+      document.querySelector("#container").insertAdjacentHTML("beforeend",img);
+
+      button.disabled=true;
+    }
+
+    function removeSpiner(){
+      const spinner= document.querySelector("img#spinner");
+      spinner.parentElement.removeChild(spinner);
+    }
+
+
+    init()
 
 
   </script>
