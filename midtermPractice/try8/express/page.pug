@@ -1,0 +1,16 @@
+DOCTYPE 
+html(lang='en')
+    title pug template
+    link(href="app.css" rel="stylesheet")
+
+body 
+    h1 PUG Template
+    form(method="post")
+        label(for="age") enter your age
+        <br />
+
+        input(type="text" name="age" ) 
+        <br />
+        button(value="submit" action="/") send the form
+
+    p=age
