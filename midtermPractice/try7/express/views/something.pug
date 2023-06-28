@@ -1,0 +1,31 @@
+DOCTYPE
+html(lang="en")
+
+head 
+    link(rel="stylesheet" href="bmi.css")
+    title BMI checker
+
+body   
+    div.header
+        div.wrapper
+            form(method="post") 
+                h1 BMI Calculator 
+                
+                p Insert Your Age
+                input.age(type="text" name="age")
+                br
+
+                p Insert Weiht in KG
+                input.weight(type="text" name="weight")
+                br
+
+                p Insert Height in cm 
+                input.height(type="text" name="height")
+                br
+
+                button.calc(action="/") check
+                p#result= result
+
+
+
+
