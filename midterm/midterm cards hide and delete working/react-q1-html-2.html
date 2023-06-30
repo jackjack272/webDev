@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+  background: #e8e7e7;
+  font-family: arial;
+  text-transform: uppercase;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 1.1em auto;
+  text-align: center;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));
+}
+
+.card {
+  box-sizing: border-box;
+  background: white;
+  width: 222px;
+  height: 290px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.card:hover .remove-card {
+  background-color: lightgray;
+}
+
+.remove-card {
+  font-size: 1.15em;
+  border: dashed red;
+  outline: none;
+  /* visibility: hidden; */
+  color: #ef5350;
+  cursor: pointer;
+  margin: 0 5px 0 0;
+  padding: 0;
+  background: none;
+}
+
+.card div {
+  text-align: center;
+  padding: 1em;
+  margin-bottom: 1.5em;
+}
+
+img {
+  width: 150px;
+}
+
+header {
+  color: #fff;
+  padding: 5px 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  background-color: #504c50;
+  border-bottom: solid 2px #d4caff;
+}
+
+header h1,
+header button {
+  flex-grow: 1;
+  font-size: 1.5em;
+  letter-spacing: 2px;
+  font-weight: normal;
+}
+
+    </style>
+</head>
+
+<body>
+
+<!-- 
+      <div>
+        <header>
+          <h1>Playing Cards Game of 52</h1>
+        </header>
+        <div class="container">
+          <div class="card">
+            <button class="remove-card">Delete</button>
+            <button class="remove-card">Delete</button>
+            <div><img src="AC.svg" /></div>
+          </div>
+      </div> -->
+      <div id="root"> </div>
+
+      
+      <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+      <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+      <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+      <script type="text/babel" src="./app.js"></script>
+      <!-- <script src="promise.js"></script> -->
+
+</body>
+</html>
