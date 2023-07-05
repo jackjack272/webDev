@@ -22,10 +22,12 @@ const App = () => (
         <Route path="/courses" element={<Courses />}>
         {/* add the following so courses will redirect to html initially */}
           <Route index element={<Navigate replace to="html" />} />
-          <Route path="html" element={<HTML />} />
-          <Route path="css" element={<CSS />} />
-          <Route path="javascript" element={<JavaScript />} />
+
+            <Route path="html" element={<HTML />} />
+            <Route path="css" element={<CSS />} />
+            <Route path="javascript" element={<JavaScript />} />
           {/* pay attention  to <Outlet /> in courses.js; it tells where nested routes shouold be put */}
+        
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
